@@ -4,7 +4,7 @@
   <title>Upload Picture</title>
 </head>
 <body>
-  <input type="file" accept="image/*" capture="camera" id="upload-btn">
+  <input type="file" accept="image/*" id="upload-btn">
   
   <script>
     document.getElementById('upload-btn').addEventListener('change', function(event) {
@@ -21,11 +21,8 @@
             
             console.log('Latitude:', latitude);
             console.log('Longitude:', longitude);
-
-            alert('Latitude: '+ latitude + " " + 'Longitude: '+ longitude)
           } else {
             console.log('No GPS data found in the image.');
-            alert("no data")
           }
         };
         
