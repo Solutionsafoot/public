@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Upload Picture</title>
+</head>
+<body>
+  <input type="file" accept="image/*" capture="camera" id="upload-btn">
+  
+  <script>
+    document.getElementById('upload-btn').addEventListener('change', function(event) {
+      const file = event.target.files[0];
+      const reader = new FileReader();
+      
+      reader.onload = function(event) {
+        const image = new Image();
+        
+        image.onload = function() {
+          if (this.exifdata && this.exifdata.GPSLatitude && this.exifdata.GPSLongitude) {
+            const latitude = this.exifdata.GPSLatitude;
+            const longitude = this.exifdata.GPSLongitude;
+            
+            console.log('Latitude:', latitude);
+            console.log('Longitude:', longitude);
+
+            alert('Latitude: '+ latitude + " " + 'Longitude: '+ longitude)
+          } else {
+            console.log('No GPS data found in the image.');
+            alert("no data")
+          }
+        };
+        
+        image.src = event.target.result;
+      };
+      
+      reader.readAsDataURL(file);
+    });
+  </script>
+</body>
+</html>
