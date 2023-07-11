@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Upload Picture 2</title>
+  <title>Upload Picture 3</title>
 </head>
 <body>
   <input type="file" accept="image/*" id="upload-btn">
@@ -21,8 +21,10 @@
             
             console.log('Latitude:', latitude);
             console.log('Longitude:', longitude);
+            alert(latitude)
           } else {
             console.log('No GPS data found in the image.');
+            alert("no data")
           }
         };
         
